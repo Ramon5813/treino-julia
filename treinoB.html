@@ -1,65 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Treino B</title>
+  <title>Treino B</title> <!-- Aba do navegador -->
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background: #e3f2fd; /* azul claro */
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #000000 0%, #0a0a0a 100%);
+      color: #ffe81f; /* Amarelo clássico Star Wars */
     }
     h1 {
-      color: #0d47a1; /* azul escuro */
+      text-align: center;
+      font-size: 2em;
+      color: #ffe81f;
+      text-shadow: 2px 2px 5px black;
     }
     h2 {
-      color: #1565c0; /* azul intermediário */
+      color: #ffe81f;
+      margin-top: 25px;
+      text-shadow: 1px 1px 3px black;
     }
     ul {
       list-style: none;
       padding-left: 0;
     }
-    li {
-      margin-bottom: 10px;
+    li.exercicio {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
     }
     label {
-      font-size: 1.1em;
+      font-size: 1.05em;
+      flex: 1;
     }
-    .section {
-      margin-top: 30px;
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #ffe81f;
+      margin-right: 6px;
+    }
+    .nota-exercicio {
+      flex: 1;
+      min-width: 200px;
+      padding: 6px;
+      font-size: 0.95em;
+      border: 1px solid #ffe81f;
+      border-radius: 4px;
+      background: #111;
+      color: #ffe81f;
+    }
+    .nota-exercicio::placeholder {
+      color: #ccc;
     }
     .back-link {
-      margin-top: 40px;
+      margin-top: 30px;
       display: block;
-      color: #0d47a1;
+      color: #ffe81f;
       text-decoration: none;
       font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 2px black;
     }
     .back-link:hover {
       text-decoration: underline;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1em;
+      color: #ffe81f;
+      text-shadow: 1px 1px 3px black;
     }
   </style>
 </head>
 <body>
 
-  <h1>🟦 Treino B</h1>
+  <h1>🟦 Treino B - Júlia</h1>
 
   <div class="section">
     <h2>Exercícios</h2>
     <ul>
-      <li><input type="checkbox" id="ex1"> <label for="ex1">Puxada frontal/AB – 4x12</label></li>
-      <li><input type="checkbox" id="ex2"> <label for="ex2">Remada articulada/fechada – 4x12</label></li>
-      <li><input type="checkbox" id="ex3"> <label for="ex3">Pull over/cabo superior – 4x12</label></li>
-      <li><input type="checkbox" id="ex4"> <label for="ex4">Flexora pernas/sentado/máquina – 5x15</label></li>
-      <li><input type="checkbox" id="ex5"> <label for="ex5">Stiff/guia – 5x15</label></li>
-      <li><input type="checkbox" id="ex6"> <label for="ex6">Leg press 90° – 5x15</label></li>
-      <li><input type="checkbox" id="ex7"> <label for="ex7">Abdução máquina – 5x15</label></li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex1">
+        <label for="ex1">Puxada frontal/AB – 4x12</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex1" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex2">
+        <label for="ex2">Remada articulada/fechada – 4x12</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex2" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex3">
+        <label for="ex3">Pull over/cabo superior – 4x12</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex3" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex4">
+        <label for="ex4">Flexora pernas/sentado/máquina – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex4" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex5">
+        <label for="ex5">Stiff/guia – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex5" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex6">
+        <label for="ex6">Leg press 90° – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex6" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex7">
+        <label for="ex7">Abdução máquina – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoB-ex7" placeholder="Anotações">
+      </li>
     </ul>
   </div>
 
   <a class="back-link" href="index.html">⬅ Voltar para o Início</a>
+
+  <footer>✨ Que a Força esteja contigo ✨</footer>
+
+  <script>
+    // Salvar e carregar notas
+    document.querySelectorAll(".nota-exercicio").forEach(input => {
+      const key = input.dataset.key;
+      input.value = localStorage.getItem(key) || "";
+
+      input.addEventListener("input", () => {
+        localStorage.setItem(key, input.value);
+      });
+    });
+
+    // Salvar e carregar checkboxes
+    document.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
+      const key = checkbox.id + "-treinoB";
+      checkbox.checked = localStorage.getItem(key) === "true";
+
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem(key, checkbox.checked);
+      });
+    });
+  </script>
 
 </body>
 </html>
