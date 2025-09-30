@@ -3,63 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Treino C</title>
+  <title>Treino C - Júlia</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background: #e8f5e9; /* verde claro */
+      margin: 0;
+      background: url("https://www.transparenttextures.com/patterns/stardust.png"), black;
+      color: #ffe81f; /* amarelo clássico Star Wars */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     h1 {
-      color: #2e7d32; /* verde escuro */
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px #000;
+      margin-bottom: 20px;
     }
     h2 {
-      color: #388e3c; /* verde intermediário */
+      color: #ffe81f;
+      text-shadow: 1px 1px 4px #000;
+      margin-top: 25px;
     }
     ul {
       list-style: none;
       padding-left: 0;
     }
-    li {
-      margin-bottom: 10px;
+    li.exercicio {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     label {
-      font-size: 1.1em;
+      flex: 1;
+      font-size: 1.05em;
     }
-    .section {
-      margin-top: 30px;
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #ffe81f;
+    }
+    .nota-exercicio {
+      flex: 1;
+      min-width: 200px;
+      padding: 6px;
+      font-size: 0.95em;
+      border: 1px solid #ffe81f;
+      border-radius: 4px;
+      background: #111;
+      color: #ffe81f;
+    }
+    .nota-exercicio::placeholder {
+      color: #ccc;
     }
     .back-link {
-      margin-top: 40px;
+      margin-top: 30px;
       display: block;
-      color: #2e7d32;
-      text-decoration: none;
+      text-align: center;
+      color: #ffe81f;
       font-weight: bold;
+      text-decoration: none;
+      text-shadow: 1px 1px 5px #000;
     }
     .back-link:hover {
       text-decoration: underline;
+    }
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2em;
+      font-style: italic;
+      color: #ffe81f;
+      text-shadow: 0 0 10px #000;
     }
   </style>
 </head>
 <body>
 
-  <h1>🟩 Treino C</h1>
+  <h1>🟩 Treino C - Júlia</h1>
 
   <div class="section">
     <h2>Exercícios</h2>
     <ul>
-      <li><input type="checkbox" id="ex1"> <label for="ex1">Agachamento livre/bola – 5x15</label></li>
-      <li><input type="checkbox" id="ex2"> <label for="ex2">Glúteo banco/cabo – 5x15</label></li>
-      <li><input type="checkbox" id="ex3"> <label for="ex3">Elevação pélvica/máquina – 5x15</label></li>
-      <li><input type="checkbox" id="ex4"> <label for="ex4">Panturrilha sentada/máquina – 5x15</label></li>
-      <li><input type="checkbox" id="ex5"> <label for="ex5">Tríceps testa/unilateral/halter – 5x12</label></li>
-      <li><input type="checkbox" id="ex6"> <label for="ex6">Tríceps supino vertical/máquina + 1 Drop – 5x12</label></li>
-      <li><input type="checkbox" id="ex7"> <label for="ex7">Rosca direta barra W – 3x21 (7+7+7)</label></li>
-      <li><input type="checkbox" id="ex8"> <label for="ex8">Rosca scott/máquina – 5x10</label></li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex1"> 
+        <label for="ex1">Agachamento livre/bola – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex1" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex2"> 
+        <label for="ex2">Glúteo banco/cabo – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex2" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex3"> 
+        <label for="ex3">Elevação pélvica/máquina – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex3" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex4"> 
+        <label for="ex4">Panturrilha sentada/máquina – 5x15</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex4" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex5"> 
+        <label for="ex5">Tríceps testa/unilateral/halter – 5x12</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex5" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex6"> 
+        <label for="ex6">Tríceps supino vertical/máquina + 1 Drop – 5x12</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex6" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex7"> 
+        <label for="ex7">Rosca direta barra W – 3x21 (7+7+7)</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex7" placeholder="Anotações">
+      </li>
+      <li class="exercicio">
+        <input type="checkbox" id="ex8"> 
+        <label for="ex8">Rosca scott/máquina – 5x10</label>
+        <input type="text" class="nota-exercicio" data-key="treinoC-ex8" placeholder="Anotações">
+      </li>
     </ul>
   </div>
 
   <a class="back-link" href="index.html">⬅ Voltar para o Início</a>
+
+  <footer>✨ Que a Força esteja contigo ✨</footer>
+
+  <script>
+    // Salvar e carregar notas
+    document.querySelectorAll(".nota-exercicio").forEach(input => {
+      const key = input.dataset.key;
+      input.value = localStorage.getItem(key) || "";
+      input.addEventListener("input", () => {
+        localStorage.setItem(key, input.value);
+      });
+    });
+
+    // Salvar e carregar checkboxes
+    document.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
+      const key = checkbox.id + "-treinoC";
+      checkbox.checked = localStorage.getItem(key) === "true";
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem(key, checkbox.checked);
+      });
+    });
+  </script>
 
 </body>
 </html>
