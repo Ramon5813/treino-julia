@@ -1,22 +1,27 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
   margin: 0;
   padding: 0;
+  color: #ffe81f; /* amarelo Star Wars */
+  
+  /* Fundo Star Wars */
+  background: url('img/star-wars-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .container {
   max-width: 500px;
   margin: 30px auto;
   padding: 20px;
-  background: white;
+  background: rgba(17, 17, 17, 0.9); /* container escuro, leve transparência */
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
 }
 
 h1, h2, h3 {
-  color: #333;
+  color: #ffe81f;
   text-align: center;
+  text-shadow: 2px 2px 6px black;
 }
 
 .menu {
@@ -30,18 +35,21 @@ h1, h2, h3 {
 }
 
 .menu a {
-  background: #007BFF;
-  color: white;
+  background: #222;
+  color: #ffe81f;
   padding: 12px 20px;
   display: inline-block;
   width: 80%;
   text-decoration: none;
-  border-radius: 6px;
-  transition: 0.2s;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .menu a:hover {
-  background: #0056b3;
+  background-color: #444;
+  transform: scale(1.05);
 }
 
 label {
@@ -51,6 +59,7 @@ label {
 
 input[type="checkbox"] {
   margin-right: 8px;
+  accent-color: #ffe81f; /* checkbox amarelo */
 }
 
 .voltar {
@@ -58,5 +67,11 @@ input[type="checkbox"] {
   margin-top: 20px;
   text-align: center;
   text-decoration: none;
-  color: #007BFF;
+  color: #ffe81f;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+}
+
+.voltar:hover {
+  text-decoration: underline;
 }
